@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">AttijariLITE</string>
+    <string name="home">Accueil</string>
+    <string name="consultation">Consultation</string>
+    <string name="cards">Cartes</string>
+    <string name="identifier">Identifiant</string>
+    <string name="password">Mot de passe</string>
+    <string name="connection">Connexion</string>
+    <string name="remember_me">se souvenir de moi</string>
+    <string name="forgot_password">Mot de passe oublié</string>
+    <string name="forgot_identifier">Identifiant oublié</string>
+    <string name="become_customer">Devenir client</string>
+    <string name="my_accounts">Mes Comptes</string>
+    <string name="balance">Solde</string>
+    <string name="web_adress">www.attijariwafabank.com/fr</string>
+    <string name="accounts">Comptes</string>
+    <string name="payment">Payment</string>
+    <string name="transfers">Virements</string>
+    <string name="history">Historique des transactions</string>
+    <string name="totalbalance">Solde Total</string>
+    <string name="transfer">Virement</string>
+    <string name="emetteur">Compte emetteur</string>
+    <string name="sender_account">Compte émetteur</string>
+    <string name="motif">Motif</string>
+    <string name="amount">Montant</string>
+    <string name="execution_date">date d\'éxecution</string>
+    <string name="my_cards">Mes Cartes</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.AccountRecyclerViewItemActivity">
+    <data>
+        <variable
+            name="account"
+            type="com.example.attijarilite.model.Account" />
+    </data>
+    <LinearLayout
+        android:id="@+id/balancelinearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuAndNotification"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/radius_button"
+        android:backgroundTint="@color/orange"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="127dp"
+        android:elevation="12dp">
+        <TextView
+            android:id="@+id/account_nature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@{account.accountType}"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:text="solde"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/account_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="32dp"
+            android:text="@{String.valueOf(account.accountBalance)}"
+            android:textColor="@color/black"
+            android:layout_marginLeft="70dp"/>
+        <TextView
+            android:id="@+id/account_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@{account.accountNumber}"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+</layout>

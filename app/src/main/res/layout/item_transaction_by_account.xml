@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="transaction"
+            type="com.example.attijarilite.model.Transaction" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:backgroundTint="@color/white"
+        android:padding="4dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu_rounded_50"
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/transactionBeneficiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{transaction.beneficiary}"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/transactionObject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{transaction.object}"
+                android:layout_marginLeft="20dp"
+                android:textColor="#555252"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/transactionAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:text="@{String.valueOf(transaction.transactionAmount)}"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</layout>
