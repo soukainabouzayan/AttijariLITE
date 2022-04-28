@@ -2,11 +2,14 @@ package com.example.attijarilite.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +21,7 @@ import com.example.attijarilite.databinding.ActivityHomePageBinding;
 import com.example.attijarilite.model.Transaction;
 import com.example.attijarilite.viewmodel.BalanceViewModel;
 import com.example.attijarilite.viewmodel.HistoryViewModel;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +31,8 @@ public class HomePageActivity extends AppCompatActivity {
     BalanceViewModel balanceViewModel;
     private  HistoryViewModel historyViewModel;
     private HistoryAdapter historyAdapter;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +74,39 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        activityHomePageBinding.paymentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),PaymentOrRefillActivity.class));
+            }
+        });
+        drawerLayout = activityHomePageBinding.drawerLayout;
+        navigationView = activityHomePageBinding.navView;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.cards:
+                        startActivity(new Intent(getApplicationContext(),AllCardsActivity.class));
+                        return true;
+                    case R.id.home:
+                        activityHomePageBinding.drawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                    case R.id.accounts:
+                        startActivity(new Intent(getApplicationContext(),AccountsPageActivity.class));
+                        return true;
+                    case R.id.transfer:
+                        startActivity(new Intent(getApplicationContext(),TransferActivity.class));
+                        return true;
+                    case R.id.payment:
+                        startActivity(new Intent(getApplicationContext(),PaymentActivity.class));
+                }
+
+                return true;
+            }
+        });
+
     }
     public void getAllDev(){
         historyViewModel.getAllTransactions().observe(this, new Observer<List<Transaction>>() {

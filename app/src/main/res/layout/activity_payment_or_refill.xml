@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.PaymentOrRefillActivity">
+    <data></data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iconback"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/iconsback" />
+
+        <ImageView
+            android:id="@+id/pay_bills_illustration"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/pay_bills_illustration" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/pay_bills_illustration"
+            android:layout_marginTop="103dp">
+
+            <Button
+                android:id="@+id/bills"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="@string/bills"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/refill"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="20dp"/>
+
+            <Button
+                android:id="@+id/refill"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:text="@string/refill"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+</layout>

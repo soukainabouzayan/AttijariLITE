@@ -10,13 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AttijariLITE">
         <activity
+            android:name=".views.RefillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.PaymentOrRefillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.PaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.TransferActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".views.AccountDetailsActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".views.AllCardsActivity"
             android:exported="false" />
@@ -25,15 +32,16 @@
             android:exported="false" />
         <activity
             android:name=".views.LoginPageActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".views.HomePageActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".views.MainActivity"
             android:exported="false" />

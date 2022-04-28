@@ -7,22 +7,26 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/drawable/radius_bottom.xml" value="0.1815" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/drawable/radius_button_10.xml" value="0.118" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/drawable/radius_top.xml" value="0.118" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_account_details.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_account_details.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_account_recycler_view_item.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_accounts_page.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_all_cards.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_history.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_home_page.xml" value="0.25" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_payment.xml" value="0.22" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_payment_or_refill.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_refill.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/activity_transfer.xml" value="0.25" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/balance.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/item_card.xml" value="0.18" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/item_card.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/item_transaction.xml" value="0.22" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/item_transaction_by_account.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/item_transaction_by_card.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/itemaccount.xml" value="0.25" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/main_menu_header.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/main_menu_header.xml" value="0.22" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/layout/payment_item.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1385" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/AttijariLITE/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1385" />

@@ -43,32 +43,40 @@
         android:background="@drawable/radius_button"
         android:backgroundTint="@color/gray"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <EditText
             android:id="@+id/identifier"
-            android:layout_width="387dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/radius_button"
             android:backgroundTint="@color/orange"
             android:hint="@string/identifier"
+            android:maxLength="24"
             android:padding="10dp"
+            android:text="@={loginviewmodel.identifier}"
             android:textColorHint="@color/black"
-            android:maxLength="24"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="387dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/radius_button"
             android:backgroundTint="@color/orange"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:maxLength="24"
             android:padding="10dp"
+            android:text="@={loginviewmodel.password}"
             android:textColorHint="@color/black"
-            android:maxLength="24"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

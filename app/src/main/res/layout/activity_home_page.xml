@@ -169,6 +169,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/payment_layout"
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_gravity="center"
@@ -259,12 +260,13 @@
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/transactions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/historyTitle"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp" />
 
             </RelativeLayout>
         </FrameLayout>

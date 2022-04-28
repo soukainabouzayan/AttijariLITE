@@ -7,6 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -58,12 +59,13 @@
             android:background="@color/white"
             android:layout_marginTop="10dp"
             android:layout_below="@id/header"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/transactionsbycard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/radius_button"
             android:layout_below="@id/cards"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:background="@drawable/radius_button" />
     </RelativeLayout>
 </layout>

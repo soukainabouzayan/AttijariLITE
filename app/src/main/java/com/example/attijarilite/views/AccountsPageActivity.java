@@ -32,8 +32,7 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
         accountsBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),HomePageActivity.class));
             }
         });
 

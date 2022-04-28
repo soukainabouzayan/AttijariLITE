@@ -10,7 +10,7 @@
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="@drawable/radius_button"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/white"
         android:padding="4dp"
         android:layout_marginTop="12dp">
         <ImageView

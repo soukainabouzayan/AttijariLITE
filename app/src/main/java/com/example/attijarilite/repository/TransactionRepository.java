@@ -20,6 +20,10 @@ public class TransactionRepository {
         transactionList.add(transaction2);
         transactionList.add(transaction3);
         transactionList.add(transaction4);
+        transactionList.add(transaction4);
+        transactionList.add(transaction4);
+        transactionList.add(transaction4);
+        transactionList.add(transaction4);
         mutableLiveData.setValue(transactionList);
         return mutableLiveData;
     }

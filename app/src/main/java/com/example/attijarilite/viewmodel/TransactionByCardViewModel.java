@@ -10,7 +10,10 @@ import java.util.List;
 
 public class TransactionByCardViewModel extends ViewModel {
     private TransactionRepository transactionRepository;
-    public LiveData<List<Transaction>> getTransactionsByCard(){
+    public TransactionByCardViewModel() {
+        transactionRepository = new TransactionRepository();
+    }
+    public LiveData<List<Transaction>> getAllTransactions(){
         return transactionRepository.getAllTransactions();
     }
 }

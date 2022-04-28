@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/home"
-        android:title="@string/home"/>
+        android:title="@string/home"
+        android:icon="@drawable/icons8_home_48"/>
+
     <item
-        android:title="consultation">
+        android:title="Consultation">
         <menu>
-            <item android:title="@string/cards"/>
-            <item android:title="@string/accounts"/>
+            <item android:id="@+id/cards" android:title="@string/cards" android:icon="@drawable/bank_cards_60" app:showAsAction="never"/>
+            <item android:id="@+id/accounts" android:title="@string/accounts" android:icon="@drawable/bank_account_60" app:showAsAction="never"/>
+        </menu>
+    </item>
+    <item android:title="@string/operations" android:icon="@drawable/pay_60">
+        <menu>
+            <item android:id="@+id/payment" android:title="@string/bills_payment" android:icon="@drawable/icons8_bill_48" app:showAsAction="never"/>
+            <item android:id="@+id/phone_refill" android:title="@string/phone_refill" android:icon="@drawable/icons8_smartphone_64" app:showAsAction="never"/>
+            <item android:id="@+id/transfer" android:title="@string/transfer" android:icon="@drawable/transfer_pay_64" app:showAsAction="never"/>
+            <item android:id="@+id/cash_express" android:title="@string/cash_express" android:icon="@drawable/icons8_cash_48" app:showAsAction="never"/>
         </menu>
     </item>
 

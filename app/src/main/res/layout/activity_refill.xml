@@ -2,14 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".views.TransferActivity">
-    <data>
-
-    </data>
+    tools:context=".views.RefillActivity">
+    <data></data>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -21,13 +18,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/transfer"
+                android:text="Téléphonie et Internet"
                 android:textColor="@color/black"
-                android:textSize="30dp"
+                android:textSize="26dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/iconnotification"
-                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintHorizontal_bias="0.358"
                 app:layout_constraintStart_toEndOf="@+id/iconback"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
@@ -41,7 +38,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.043" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/iconback"
@@ -55,35 +52,33 @@
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
-            android:id="@+id/transferinfos"
+        <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/header"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/radius_button"
-            android:backgroundTint="@color/orange"
-            android:elevation="20dp">
+            android:layout_marginTop="150dp"
+            android:background="@drawable/radius_button_10"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/sender_account_layout"
+                android:id="@+id/orange_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="4dp"
                 android:background="@drawable/radius_button_10"
                 android:gravity="center"
                 android:padding="2dp">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/orange_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:gravity="center"
-                    android:text="@string/sender_account"
+                    android:text="@string/inwi"
                     android:textColor="@color/orange"
                     android:textSize="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -91,24 +86,22 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.353" />
 
-                <ImageView
-                    android:id="@+id/account_sender_choices"
+                <Spinner
+                    android:id="@+id/orange_spinner"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_marginStart="40dp"
-                    android:src="@drawable/icons8_sort_down_30"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.9"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/orange_title"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/beneficiaire_layout"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/inwi_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/sender_account_layout"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="4dp"
@@ -117,67 +110,31 @@
                 android:padding="2dp">
 
                 <TextView
+                    android:id="@+id/inwi_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="Bénéficiaire"
+                    android:gravity="center"
+                    android:text="@string/orange"
                     android:textColor="@color/orange"
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.353" />
 
                 <Spinner
-                    android:id="@+id/beneficiaires_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:id="@+id/inwi_spinner"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toEndOf="@+id/inwi_title"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <EditText
-                android:id="@+id/amount"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@id/beneficiaire_layout"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="4dp"
-                android:hint="@string/amount"
-                android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/motif"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@id/amount"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="4dp"
-                android:hint="@string/motif"
-                android:inputType="text" />
-
-            <EditText
-                android:id="@+id/execution_date"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@id/motif"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="4dp"
-                android:focusable="false"
-                android:hint="@string/execution_date"
-                android:inputType="date" />
-        </RelativeLayout>
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/transferinfos"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/radius_button_10"
-            android:backgroundTint="@color/orange"
-            android:elevation="30dp"
-            android:text="Valider"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        </LinearLayout>
     </RelativeLayout>
-
 </layout>

@@ -14,7 +14,7 @@
     <string name="balance">Solde</string>
     <string name="web_adress">www.attijariwafabank.com/fr</string>
     <string name="accounts">Comptes</string>
-    <string name="payment">Payment</string>
+    <string name="payment">Paiement</string>
     <string name="transfers">Virements</string>
     <string name="history">Historique des transactions</string>
     <string name="totalbalance">Solde Total</string>
@@ -25,4 +25,19 @@
     <string name="amount">Montant</string>
     <string name="execution_date">date d\'éxecution</string>
     <string name="my_cards">Mes Cartes</string>
+    <string name="operations">Opérations</string>
+    <string name="bills_payment">Paiement des factures</string>
+    <string name="phone_refill">Recharges mobiles</string>
+    <string name="cash_express">Cash express automatic</string>
+    <string name="water_electricity">Eau et Eléctricité</string>
+    <string name="redal">REDAL</string>
+    <string name="amendis_tanger">Amendis Tanger</string>
+    <string name="lydec">Lydec</string>
+    <string name="amendis_tetouan">Amendis Tetouan</string>
+    <string name="administration">Administration</string>
+    <string name="thumbnail">vignette</string>
+    <string name="bills">factures</string>
+    <string name="refill">Recharge</string>
+    <string name="inwi">Inwi</string>
+    <string name="orange">Orange</string>
 </resources>

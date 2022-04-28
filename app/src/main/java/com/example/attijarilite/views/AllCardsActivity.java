@@ -7,16 +7,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.attijarilite.R;
 import com.example.attijarilite.adapter.AllCardsAdapter;
+import com.example.attijarilite.adapter.DetailsAccountAdapter;
 import com.example.attijarilite.adapter.HistoryAdapter;
 import com.example.attijarilite.databinding.ActivityAllCardsBinding;
 import com.example.attijarilite.model.Card;
+import com.example.attijarilite.model.Transaction;
 import com.example.attijarilite.viewmodel.AllCardsViewModel;
 import com.example.attijarilite.viewmodel.TransactionByCardViewModel;
 
@@ -27,8 +27,8 @@ public class AllCardsActivity extends AppCompatActivity {
     ActivityAllCardsBinding cardsBinding;
     AllCardsAdapter cardsAdapter;
     AllCardsViewModel cardsViewModel;
-    HistoryAdapter historyAdapter;
-    TransactionByCardViewModel transactionByCardViewModel;
+    DetailsAccountAdapter transactionsByCardAdapter;
+    TransactionByCardViewModel transactionsByCardViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,7 @@ public class AllCardsActivity extends AppCompatActivity {
         cardsBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         ///cards recyclerview
@@ -48,13 +47,30 @@ public class AllCardsActivity extends AppCompatActivity {
         cardsViewModel = new ViewModelProvider(this).get(AllCardsViewModel.class);
         cardsAdapter = new AllCardsAdapter();
         recyclerView.setAdapter(cardsAdapter);
-        getAllDev();
+        RecyclerView transactionsByCard = cardsBinding.transactionsbycard;
+        transactionsByCard.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL,false));
+        transactionsByCard.setHasFixedSize(true);
+        transactionsByCardViewModel = new ViewModelProvider(this).get(TransactionByCardViewModel.class);
+        transactionsByCardAdapter = new DetailsAccountAdapter();
+        transactionsByCard.setAdapter(transactionsByCardAdapter);
+        getAllTransactions();
+        getTransactionsByCard();
+
     }
-    public void getAllDev(){
+    public void getAllTransactions(){
         cardsViewModel.getAllCards().observe(this, new Observer<List<Card>>() {
             @Override
             public void onChanged(@Nullable List<Card> cardList) {
                 cardsAdapter.setCardList((ArrayList<Card>) cardList );
+            }
+        });
+    }
+    public void getTransactionsByCard(){
+        transactionsByCardViewModel.getAllTransactions().observe(this, new Observer<List<Transaction>>() {
+            @Override
+            public void onChanged(List<Transaction> transactions) {
+                transactionsByCardAdapter.setTransactionList((ArrayList<Transaction>) transactions);
             }
         });
     }

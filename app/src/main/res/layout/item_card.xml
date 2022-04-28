@@ -7,6 +7,13 @@
             name="card"
             type="com.example.attijarilite.model.Card" />
     </data>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +23,6 @@
         android:paddingTop="4dp"
         android:paddingBottom="8dp"
         android:layout_margin="10dp">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header_layout"
             android:layout_width="match_parent"
@@ -38,7 +44,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
-
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="50dp"
@@ -83,4 +88,14 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"/>
     </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactionsByCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            />
+        </LinearLayout>
+
+
 </layout>

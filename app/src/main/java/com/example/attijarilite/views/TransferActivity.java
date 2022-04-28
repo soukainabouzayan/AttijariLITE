@@ -1,35 +1,47 @@
 package com.example.attijarilite.views;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import com.example.attijarilite.R;
 import com.example.attijarilite.databinding.ActivityTransferBinding;
+import com.example.attijarilite.model.Account;
+import com.example.attijarilite.viewmodel.AllAccountsViewModel;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class TransferActivity extends AppCompatActivity {
     ActivityTransferBinding transferBinding;
     EditText executionDate;
     DatePickerDialog  datePickerDialog;
-    Spinner accountSenderSpinner;
+    String[] arr = new String[] { "A", "B", "C", "D", "E" };
+    ArrayList<Account> accounts = new ArrayList<>();
+
+    AllAccountsViewModel accountsViewModel;
+    AlertDialog.Builder accountsBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         transferBinding = DataBindingUtil.setContentView(this,R.layout.activity_transfer);
+        accountsViewModel = new ViewModelProvider(this).get(AllAccountsViewModel.class);
         transferBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         executionDate = transferBinding.executionDate;
@@ -50,7 +62,24 @@ public class TransferActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-        accountSenderSpinner = transferBinding.accountSenderSpinner;
+        transferBinding.accountSenderChoices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                accountsBuilder = new AlertDialog.Builder(TransferActivity.this);
+                accountsBuilder.setTitle("Compte émetteur")
+                        .setNegativeButton("Annuler", null).
+                        setIcon(R.drawable.bank_account_60)
+                        .setItems(arr, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        transferBinding.textView.setText(arr[i]);
+                    }
+                });
+                AlertDialog alert = accountsBuilder.create();
+                alert.show();
+            }
+        });
     }
+
+
 }
