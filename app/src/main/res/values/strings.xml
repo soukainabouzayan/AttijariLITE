@@ -40,4 +40,12 @@
     <string name="refill">Recharge</string>
     <string name="inwi">Inwi</string>
     <string name="orange">Orange</string>
+    <string-array name="inwi">
+        <item>Recharge Inwi</item>
+        <item>Factures Inwi</item>
+    </string-array>
+    <string-array name="orange">
+        <item>Orange Particuliers</item>
+        <item>Orange Entreprises</item>
+    </string-array>
 </resources>

@@ -3,6 +3,7 @@ package com.example.attijarilite.views;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
     ActivityAccountsPageBinding accountsBinding;
     AllAccountsViewModel accountsViewModel;
     AllAccountsAdapter accountsAdapter;
+    private List<Account> accounts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,10 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
     @Override
     public void onAccountClick(int position) {
         Intent intent = new Intent(getApplicationContext(),AccountDetailsActivity.class);
+        List<Account> accounts = (List<Account>) accountsViewModel.getAllAccounts().getValue();
+        intent.putExtra("accountNumber",accounts.get(position).getAccountNumber());
+        intent.putExtra("accountType",accounts.get(position).getAccountType());
+        intent.putExtra("accountBalance",accounts.get(position).getAccountBalance());
         startActivity(intent);
     }
 }

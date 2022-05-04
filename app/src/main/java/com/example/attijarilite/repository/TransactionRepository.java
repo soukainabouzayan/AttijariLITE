@@ -43,7 +43,7 @@ public class TransactionRepository {
         return mutableLiveData;
     }
 
-    public MutableLiveData<List<Transaction>> getTransactionByAccount(){
+    public MutableLiveData<List<Transaction>> getTransactionByAccount(String accountNumber){
         MutableLiveData<List<Transaction>> mutableLiveData = new MutableLiveData<>();
         List<Transaction> transactionList = new ArrayList<>();
         Transaction transaction1 = new Transaction("Date date1","transaction object1","bénificiaire",(double) 111111);
@@ -63,7 +63,17 @@ public class TransactionRepository {
         transactionList.add(transaction7);
         transactionList.add(transaction8);
         mutableLiveData.setValue(transactionList);
-        return mutableLiveData;
-
+        MutableLiveData<List<Transaction>> mutableLiveData2 = new MutableLiveData<>();
+        List<Transaction> transactionList2 = new ArrayList<>();
+        Transaction transaction9 = new Transaction("Date date1","transaction object1","bénificiaire",(double) 111111);
+        transactionList2.add(transaction9);
+        transactionList2.add(transaction9);
+        transactionList2.add(transaction9);
+        mutableLiveData2.setValue(transactionList2);
+        if (accountNumber.equals("account number1111111111")){
+            return mutableLiveData2;
+        }
+        else
+            return mutableLiveData;
     }
 }

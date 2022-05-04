@@ -10,6 +10,8 @@ import android.view.View;
 import com.example.attijarilite.R;
 import com.example.attijarilite.databinding.ActivityPaymentOrRefillBinding;
 
+import java.net.InetSocketAddress;
+
 public class PaymentOrRefillActivity extends AppCompatActivity {
     ActivityPaymentOrRefillBinding paymentOrRefillBinding;
     @Override
@@ -25,7 +27,13 @@ public class PaymentOrRefillActivity extends AppCompatActivity {
         paymentOrRefillBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity( new Intent(getApplicationContext(),HomePageActivity.class));
+            }
+        });
+        paymentOrRefillBinding.refill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),RefillActivity.class));
             }
         });
     }

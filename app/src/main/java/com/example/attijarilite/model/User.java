@@ -1,5 +1,7 @@
 package com.example.attijarilite.model;
 
+import android.util.Patterns;
+
 import androidx.annotation.NonNull;
 
 public class User {
@@ -22,9 +24,10 @@ public class User {
         return password;
     }
     public boolean isIdentifierValid(){
+
         return  true;
     }
     public boolean isPasswordValid(){
-        return true;
+        return Patterns.EMAIL_ADDRESS.matcher(getIdentifier()).matches();
     }
 }

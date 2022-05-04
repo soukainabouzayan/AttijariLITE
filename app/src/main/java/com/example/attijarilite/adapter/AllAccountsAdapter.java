@@ -1,7 +1,6 @@
 package com.example.attijarilite.adapter;
 
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import java.util.List;
 public class AllAccountsAdapter extends RecyclerView.Adapter<AllAccountsAdapter.AccountHolder> {
     private List<Account> accountList;
     private OnAccountListener onAccountListener;
-
     public AllAccountsAdapter() {
     }
 

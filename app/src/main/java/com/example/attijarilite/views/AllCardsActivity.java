@@ -1,5 +1,6 @@
 package com.example.attijarilite.views;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,7 +9,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.attijarilite.R;
 import com.example.attijarilite.adapter.AllCardsAdapter;
@@ -48,12 +51,24 @@ public class AllCardsActivity extends AppCompatActivity {
         cardsAdapter = new AllCardsAdapter();
         recyclerView.setAdapter(cardsAdapter);
         RecyclerView transactionsByCard = cardsBinding.transactionsbycard;
-        transactionsByCard.setLayoutManager(new LinearLayoutManager(this,
-                LinearLayoutManager.VERTICAL,false));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL,false);
+        transactionsByCard.setLayoutManager(linearLayoutManager);
         transactionsByCard.setHasFixedSize(true);
         transactionsByCardViewModel = new ViewModelProvider(this).get(TransactionByCardViewModel.class);
         transactionsByCardAdapter = new DetailsAccountAdapter();
         transactionsByCard.setAdapter(transactionsByCardAdapter);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                Log.d("DISTANCE", "" + linearLayoutManager.findFirstVisibleItemPosition());
+            }
+        });
         getAllTransactions();
         getTransactionsByCard();
 
@@ -74,5 +89,6 @@ public class AllCardsActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

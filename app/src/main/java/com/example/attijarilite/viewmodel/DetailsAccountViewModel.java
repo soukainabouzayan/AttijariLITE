@@ -15,7 +15,7 @@ public class DetailsAccountViewModel extends ViewModel {
         repository = new TransactionRepository();
     }
 
-    public LiveData<List<Transaction>> getTransactionsByAccount(){
-        return repository.getTransactionByAccount();
+    public LiveData<List<Transaction>> getTransactionsByAccount(String accountNumber){
+        return repository.getTransactionByAccount(accountNumber);
     }
 }
