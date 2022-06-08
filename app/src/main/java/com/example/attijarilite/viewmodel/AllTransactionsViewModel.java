@@ -8,9 +8,9 @@ import com.example.attijarilite.repository.TransactionRepository;
 
 import java.util.List;
 
-public class HistoryViewModel extends ViewModel {
+public class AllTransactionsViewModel extends ViewModel {
     private TransactionRepository transactionRepository;
-    public HistoryViewModel() {
+    public AllTransactionsViewModel() {
         transactionRepository = new TransactionRepository();
     }
     public LiveData<List<Transaction>> getAllTransactions(){

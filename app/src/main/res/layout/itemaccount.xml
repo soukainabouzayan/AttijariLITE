@@ -15,7 +15,7 @@
         android:layout_below="@id/menuAndNotification"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/gray"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="127dp"
@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="32dp"
-            android:text="@{String.valueOf(account.accountBalance)}"
-            android:textColor="@color/black"
+            android:text="@{String.valueOf(account.accountBalance)+` DH`}"
+            android:textColor="@color/orange"
             android:layout_marginLeft="70dp"/>
         <TextView
             android:id="@+id/account_number"

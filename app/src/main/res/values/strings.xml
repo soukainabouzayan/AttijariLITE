@@ -16,7 +16,7 @@
     <string name="accounts">Comptes</string>
     <string name="payment">Paiement</string>
     <string name="transfers">Virements</string>
-    <string name="history">Historique des transactions</string>
+    <string name="history">Dernières transactions</string>
     <string name="totalbalance">Solde Total</string>
     <string name="transfer">Virement</string>
     <string name="emetteur">Compte emetteur</string>
@@ -45,7 +45,11 @@
         <item>Factures Inwi</item>
     </string-array>
     <string-array name="orange">
-        <item>Orange Particuliers</item>
-        <item>Orange Entreprises</item>
+        <item>Recharge Orange</item>
+        <item>Factures Orange</item>
     </string-array>
+    <string name="beneficiary">Bénéficiaire</string>
+    <string name="space">\u0020</string>
+    <string name="beneficiaries">Bénéficiaires</string>
+    <string name="dirham"> DH</string>
 </resources>

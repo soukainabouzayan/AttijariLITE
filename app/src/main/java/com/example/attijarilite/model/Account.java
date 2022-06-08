@@ -1,20 +1,31 @@
 package com.example.attijarilite.model;
 
 public class Account {
+    private Long id;
     private String accountNumber;
-    private Double accountBalance;
+    private float accountBalance;
     private  String agency;
     private String accountType;
     private String entitled;
     private String rib;
 
-    public Account(String accountNumber, Double accountBalance, String accountType) {
+    public Account(String accountNumber, float accountBalance, String accountType) {
         this.accountNumber = accountNumber;
         this.accountBalance = accountBalance;
         this.accountType = accountType;
     }
 
-    public Account(String accountNumber, Double accountBalance, String agency, String accountType, String entitled, String rib) {
+    public Account(String accountNumber, float accountBalance, String agency, String accountType, String entitled, String rib) {
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+        this.agency = agency;
+        this.accountType = accountType;
+        this.entitled = entitled;
+        this.rib = rib;
+    }
+
+    public Account(Long id, String accountNumber, float accountBalance, String agency, String accountType, String entitled, String rib) {
+        this.id = id;
         this.accountNumber = accountNumber;
         this.accountBalance = accountBalance;
         this.agency = agency;
@@ -31,11 +42,11 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public Double getAccountBalance() {
+    public float getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(Double accountBalance) {
+    public void setAccountBalance(float accountBalance) {
         this.accountBalance = accountBalance;
     }
 

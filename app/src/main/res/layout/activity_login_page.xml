@@ -44,8 +44,8 @@
         android:backgroundTint="@color/gray"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp">
 
         <EditText
             android:id="@+id/identifier"
@@ -54,7 +54,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/radius_button"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/white"
             android:hint="@string/identifier"
             android:maxLength="24"
             android:padding="10dp"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/radius_button"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/white"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:maxLength="24"
@@ -114,32 +114,16 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:backgroundTint="@color/orange" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/forgotpassword"
-                android:layout_width="171dp"
-                android:layout_height="27dp"
-                android:gravity="center"
-                android:text="@string/forgot_password"
-                android:textColor="@color/black" />
-
             <TextView
                 android:id="@+id/forgotidentifier"
                 android:layout_width="171dp"
                 android:layout_height="27dp"
                 android:gravity="center"
                 android:text="@string/forgot_password"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:layout_marginBottom="30dp"/>
 
-        </LinearLayout>
+
 
 
     </LinearLayout>

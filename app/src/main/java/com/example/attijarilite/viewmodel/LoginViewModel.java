@@ -21,8 +21,8 @@ public class LoginViewModel extends ViewModel {
         return userMutableLiveData;
     }
     public void onClick(View view){
-
-
+        User user = new User(identifier.getValue(), password.getValue());
+        userMutableLiveData.setValue(user);
     }
 
 }

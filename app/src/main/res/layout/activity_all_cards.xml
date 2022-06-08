@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.AllCardsActivity">
-    <data></data>
+    <data>
+        <variable
+            name="card"
+            type="com.example.attijarilite.model.Card" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -54,18 +58,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/header"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsbycard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cards"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/radius_button" />
+            android:layout_below="@id/header"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
     </RelativeLayout>
 </layout>

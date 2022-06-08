@@ -17,6 +17,11 @@ import java.util.List;
 
 public class AllCardsAdapter extends RecyclerView.Adapter<AllCardsAdapter.AllCardsHolder> {
     private List<Card> cardList;
+    private OnCardListener cardListener;
+
+    public AllCardsAdapter(OnCardListener cardListener) {
+        this.cardListener = cardListener;
+    }
 
     @NonNull
     @Override
@@ -24,7 +29,7 @@ public class AllCardsAdapter extends RecyclerView.Adapter<AllCardsAdapter.AllCar
         ItemCardBinding cardBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()), R.layout.item_card,parent,false);
 
-        return new AllCardsHolder(cardBinding);
+        return new AllCardsHolder(cardBinding,cardListener);
     }
 
     @Override
@@ -45,11 +50,22 @@ public class AllCardsAdapter extends RecyclerView.Adapter<AllCardsAdapter.AllCar
         notifyDataSetChanged();
     }
 
-    public class AllCardsHolder extends RecyclerView.ViewHolder {
+    public class AllCardsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ItemCardBinding cardBinding;
-        public AllCardsHolder(ItemCardBinding cardBinding) {
+        OnCardListener cardListener;
+        public AllCardsHolder(ItemCardBinding cardBinding,OnCardListener cardListener) {
             super(cardBinding.getRoot());
             this.cardBinding = cardBinding;
+            itemView.setOnClickListener(this);
+            this.cardListener=cardListener;
         }
+
+        @Override
+        public void onClick(View view) {
+            cardListener.onCardClick(getAdapterPosition());
+        }
+    }
+    public interface OnCardListener{
+        void onCardClick(int position);
     }
 }

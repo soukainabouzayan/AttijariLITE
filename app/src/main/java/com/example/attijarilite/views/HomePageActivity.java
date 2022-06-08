@@ -20,7 +20,7 @@ import com.example.attijarilite.adapter.HistoryAdapter;
 import com.example.attijarilite.databinding.ActivityHomePageBinding;
 import com.example.attijarilite.model.Transaction;
 import com.example.attijarilite.viewmodel.BalanceViewModel;
-import com.example.attijarilite.viewmodel.HistoryViewModel;
+import com.example.attijarilite.viewmodel.AllTransactionsViewModel;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import java.util.List;
 public class HomePageActivity extends AppCompatActivity {
     ActivityHomePageBinding activityHomePageBinding;
     BalanceViewModel balanceViewModel;
-    private  HistoryViewModel historyViewModel;
+    private AllTransactionsViewModel historyViewModel;
     private HistoryAdapter historyAdapter;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -43,8 +43,8 @@ public class HomePageActivity extends AppCompatActivity {
         RecyclerView recyclerView = activityHomePageBinding.transactions;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        historyViewModel = new ViewModelProvider(this).get(HistoryViewModel.class);
         historyAdapter = new HistoryAdapter();
+        historyViewModel = new ViewModelProvider(this).get(AllTransactionsViewModel.class);
         recyclerView.setAdapter(historyAdapter);
         getAllDev();
         activityHomePageBinding.menu.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +56,10 @@ public class HomePageActivity extends AppCompatActivity {
         activityHomePageBinding.myaccountslayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),AccountsPageActivity.class);
-                startActivity(intent);
+                Intent intent = getIntent();
+                Intent intent2 = new Intent(getApplicationContext(),AccountsPageActivity.class);
+                intent2.putExtra("identifier",intent.getStringExtra("identifier"));
+                startActivity(intent2);
             }
         });
         activityHomePageBinding.mycardslayout.setOnClickListener(new View.OnClickListener() {
@@ -99,14 +101,15 @@ public class HomePageActivity extends AppCompatActivity {
                     case R.id.transfer:
                         startActivity(new Intent(getApplicationContext(),TransferActivity.class));
                         return true;
-                    case R.id.payment:
-                        startActivity(new Intent(getApplicationContext(),PaymentActivity.class));
+                    case R.id.phone_refill:{
+                        startActivity(new Intent(getApplicationContext(),RefillActivity.class));}
+                    case R.id.payment:{
+                        startActivity(new Intent(getApplicationContext(),PaymentActivity.class));}
                 }
 
                 return true;
             }
         });
-
     }
     public void getAllDev(){
         historyViewModel.getAllTransactions().observe(this, new Observer<List<Transaction>>() {

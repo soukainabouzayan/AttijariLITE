@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.example.attijarilite.R;
 import com.example.attijarilite.adapter.DetailsAccountAdapter;
 import com.example.attijarilite.databinding.ActivityAccountDetailsBinding;
-import com.example.attijarilite.databinding.ItemaccountBinding;
 import com.example.attijarilite.model.Transaction;
 import com.example.attijarilite.viewmodel.DetailsAccountViewModel;
 
@@ -44,7 +43,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         accountNumber.setText(intent.getStringExtra("accountNumber"));
         accountType.setText(intent.getStringExtra("accountType"));
-        accountBalance.setText(String.valueOf(intent.getDoubleExtra("accountBalance",0)));
+        accountBalance.setText(String.valueOf(intent.getFloatExtra("accountBalance",0)).concat(" DH"));
         binding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,8 +57,6 @@ public class AccountDetailsActivity extends AppCompatActivity {
                     detailsAccountAdapter.setTransactionList((ArrayList<Transaction>) transactions);
                 }
             });
-
-
     }
 
 }

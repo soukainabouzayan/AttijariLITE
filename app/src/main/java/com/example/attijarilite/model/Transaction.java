@@ -4,7 +4,7 @@ public class Transaction {
     private String transactionDate;
     private String object;
     private String beneficiary;
-    private Double transactionAmount;
+    private float transactionAmount;
     private String cardNUmber;
 
     public String getCardNUmber() {
@@ -31,14 +31,14 @@ public class Transaction {
         this.beneficiary = beneficiary;
     }
 
-    public Transaction(String transactionDate, String transactionObject, String beneficiary, Double transactionAmount) {
+    public Transaction(String transactionDate, String transactionObject, String beneficiary, float transactionAmount) {
         this.transactionDate = transactionDate;
         this.object = transactionObject;
         this.beneficiary = beneficiary;
         this.transactionAmount = transactionAmount;
     }
 
-    public Transaction(String transactionDate, String object, Double transactionAmount) {
+    public Transaction(String transactionDate, String object, float transactionAmount) {
         this.transactionDate = transactionDate;
         this.object = object;
         this.transactionAmount = transactionAmount;
@@ -60,11 +60,11 @@ public class Transaction {
         this.object = transactionType;
     }
 
-    public Double getTransactionAmount() {
+    public float getTransactionAmount() {
         return transactionAmount;
     }
 
-    public void setTransactionAmount(Double transactionAmount) {
+    public void setTransactionAmount(float transactionAmount) {
         this.transactionAmount = transactionAmount;
     }
 }

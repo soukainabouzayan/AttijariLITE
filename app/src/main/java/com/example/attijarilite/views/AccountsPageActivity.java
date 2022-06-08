@@ -3,7 +3,6 @@ package com.example.attijarilite.views;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,11 +25,13 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
     ActivityAccountsPageBinding accountsBinding;
     AllAccountsViewModel accountsViewModel;
     AllAccountsAdapter accountsAdapter;
-    private List<Account> accounts;
+    String idetifier;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         accountsBinding = DataBindingUtil.setContentView(this,R.layout.activity_accounts_page);
+        Intent intent = getIntent();
+        idetifier = intent.getStringExtra("identifier");
         accountsBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,11 +55,9 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
 
     }
     public void getAllDev(){
-        ///get the list of dev from api response
         accountsViewModel.getAllAccounts().observe(this, new Observer<List<Account>>() {
             @Override
             public void onChanged(@Nullable List<Account> accounts) {
-                ///if any thing change the update the UI
                 accountsAdapter.setAccountList((ArrayList<Account>) accounts);
             }
         });

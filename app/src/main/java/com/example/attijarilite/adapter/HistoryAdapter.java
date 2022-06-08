@@ -16,12 +16,15 @@ import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryHolder> {
     private List<Transaction> transactionList;
+
+    public HistoryAdapter() {
+    }
+
     @NonNull
     @Override
     public HistoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemTransactionBinding transactionBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()), R.layout.item_transaction,parent,false);
-
         return new HistoryHolder(transactionBinding);
     }
 

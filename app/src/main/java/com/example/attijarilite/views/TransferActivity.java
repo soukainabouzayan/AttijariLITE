@@ -1,50 +1,56 @@
 package com.example.attijarilite.views;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.AlertDialog;
+
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.attijarilite.R;
+import com.example.attijarilite.adapter.TransferAllAccountsAdapter;
+import com.example.attijarilite.adapter.TransferAllBeneficiariesAdapter;
 import com.example.attijarilite.databinding.ActivityTransferBinding;
 import com.example.attijarilite.model.Account;
+import com.example.attijarilite.model.Beneficiary;
 import com.example.attijarilite.viewmodel.AllAccountsViewModel;
+import com.example.attijarilite.viewmodel.AllBeneficiariesViewModel;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class TransferActivity extends AppCompatActivity {
     ActivityTransferBinding transferBinding;
     EditText executionDate;
     DatePickerDialog  datePickerDialog;
-    String[] arr = new String[] { "A", "B", "C", "D", "E" };
-    ArrayList<Account> accounts = new ArrayList<>();
-
+    ImageView iconback;
+    ImageView accountSenderChoices;
+    ImageView beneficiaryChoices;
     AllAccountsViewModel accountsViewModel;
-    AlertDialog.Builder accountsBuilder;
-
+    AllBeneficiariesViewModel beneficiariesViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        transferBinding = DataBindingUtil.setContentView(this,R.layout.activity_transfer);
+        transferBinding = DataBindingUtil.setContentView(this, R.layout.activity_transfer);
         accountsViewModel = new ViewModelProvider(this).get(AllAccountsViewModel.class);
-        transferBinding.iconback.setOnClickListener(new View.OnClickListener() {
+        beneficiariesViewModel = new ViewModelProvider(this).get(AllBeneficiariesViewModel.class);
+        iconback = transferBinding.iconback;
+        executionDate = transferBinding.executionDate;
+        accountSenderChoices = transferBinding.accountSenderChoices;
+        beneficiaryChoices = transferBinding.beneficiaryChoices;
+        iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(getApplicationContext(),HomePageActivity.class));
             }
         });
-        executionDate = transferBinding.executionDate;
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
@@ -59,27 +65,45 @@ public class TransferActivity extends AppCompatActivity {
                         executionDate.setText(dayOfMonth+"/"+(month+1)+"/"+year);
                     }
                 },year,month,day);
+                Locale.setDefault(Locale.FRANCE);
                 datePickerDialog.show();
             }
         });
-        transferBinding.accountSenderChoices.setOnClickListener(new View.OnClickListener() {
+        accountSenderChoices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                accountsBuilder = new AlertDialog.Builder(TransferActivity.this);
-                accountsBuilder.setTitle("Compte émetteur")
-                        .setNegativeButton("Annuler", null).
-                        setIcon(R.drawable.bank_account_60)
-                        .setItems(arr, new DialogInterface.OnClickListener() {
+                AccountsBottomSheetFragment bottomSheetFragment = new AccountsBottomSheetFragment(
+                        new TransferAllAccountsAdapter.OnAccountListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        transferBinding.textView.setText(arr[i]);
+                    public void onAccountClick(int position) {
+                        List<Account> accounts = (List<Account>) accountsViewModel.getAllAccounts().getValue();
+                        transferBinding.senderAccount.setText(accounts.get(position).getAccountNumber());
                     }
                 });
-                AlertDialog alert = accountsBuilder.create();
-                alert.show();
+                bottomSheetFragment.show(getSupportFragmentManager(),bottomSheetFragment.getTag());
+            }
+
+        });
+        beneficiaryChoices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BeneficiariesBottomSheetFragment bottomSheetFragment = new BeneficiariesBottomSheetFragment(
+                        new TransferAllBeneficiariesAdapter.OnBeneficiaryListener() {
+                            @Override
+                            public void onBeneficiaryClick(int position) {
+                                List<Beneficiary> beneficiaries = (List<Beneficiary>) beneficiariesViewModel.getAllBeneficiaries().getValue();
+                                String fullName = beneficiaries.get(position).getFirstName() + " "+beneficiaries.get(position).getLastName();
+                                transferBinding.beneficiary.setText(fullName);
+                            }
+                        }
+                );
+                bottomSheetFragment.show(getSupportFragmentManager(),bottomSheetFragment.getTag());
             }
         });
-    }
 
+
+
+
+    }
 
 }

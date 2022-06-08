@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:background="@drawable/radius_bottom"
-            android:orientation="vertical"
-            android:backgroundTint="@color/orange">
+            android:backgroundTint="@color/orange"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -61,7 +61,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="160dp"
-                android:text="3000 DH"
                 android:textColor="@color/black"
                 android:textSize="40dp"
 
@@ -95,8 +94,8 @@
             android:layout_marginTop="30dp"
             android:text="@string/history"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            android:textStyle="italic" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/spacer"

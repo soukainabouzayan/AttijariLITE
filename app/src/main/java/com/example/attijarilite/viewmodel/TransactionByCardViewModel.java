@@ -13,7 +13,10 @@ public class TransactionByCardViewModel extends ViewModel {
     public TransactionByCardViewModel() {
         transactionRepository = new TransactionRepository();
     }
-    public LiveData<List<Transaction>> getAllTransactions(){
-        return transactionRepository.getAllTransactions();
+    public LiveData<List<Transaction>> getTransactionsByCard(String cardNumber){
+        return transactionRepository.getTransactionsByCard(cardNumber);
+    }
+    public LiveData<List<Transaction>> getTransactionsByCard(){
+        return transactionRepository.getTransactionsByCard();
     }
 }

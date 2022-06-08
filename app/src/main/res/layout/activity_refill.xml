@@ -61,79 +61,17 @@
             android:background="@drawable/radius_button_10"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/orange_layout"
+            <Spinner
+                android:id="@+id/inwispinner"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="4dp"
-                android:background="@drawable/radius_button_10"
-                android:gravity="center"
-                android:padding="2dp">
-
-                <TextView
-                    android:id="@+id/orange_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:gravity="center"
-                    android:text="@string/inwi"
-                    android:textColor="@color/orange"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.353" />
-
-                <Spinner
-                    android:id="@+id/orange_spinner"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginStart="40dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.9"
-                    app:layout_constraintStart_toEndOf="@+id/orange_title"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/inwi_layout"
+                />
+            <Spinner
+                android:id="@+id/orangespinner"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="4dp"
-                android:background="@drawable/radius_button_10"
-                android:gravity="center"
-                android:padding="2dp">
-
-                <TextView
-                    android:id="@+id/inwi_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:gravity="center"
-                    android:text="@string/orange"
-                    android:textColor="@color/orange"
-                    android:textSize="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.353" />
-
-                <Spinner
-                    android:id="@+id/inwi_spinner"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginStart="40dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.9"
-                    app:layout_constraintStart_toEndOf="@+id/inwi_title"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginTop="15dp"
+                />
 
         </LinearLayout>
     </RelativeLayout>

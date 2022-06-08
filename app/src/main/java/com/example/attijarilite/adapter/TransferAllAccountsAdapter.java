@@ -10,33 +10,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.attijarilite.R;
-import com.example.attijarilite.databinding.ItemaccountBinding;
+import com.example.attijarilite.databinding.AccountsBottomSheetItemBinding;
 import com.example.attijarilite.model.Account;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllAccountsAdapter extends RecyclerView.Adapter<AllAccountsAdapter.AccountHolder> {
+public class TransferAllAccountsAdapter extends RecyclerView.Adapter<TransferAllAccountsAdapter.AccountHolder> {
     private List<Account> accountList;
     private OnAccountListener onAccountListener;
-    public AllAccountsAdapter() {
+    public TransferAllAccountsAdapter() {
     }
-    public AllAccountsAdapter(OnAccountListener onAccountListener) {
+    public TransferAllAccountsAdapter(OnAccountListener onAccountListener) {
         this.onAccountListener = onAccountListener;
     }
 
     @NonNull
     @Override
-    public AllAccountsAdapter.AccountHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemaccountBinding itemBinding = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.getContext()),R.layout.itemaccount,parent,false);
+    public TransferAllAccountsAdapter.AccountHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        AccountsBottomSheetItemBinding itemBinding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),R.layout.accounts_bottom_sheet_item,parent,false);
         return new AccountHolder(itemBinding,onAccountListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllAccountsAdapter.AccountHolder holder, int position) {
-        Account currentAccount = accountList.get(position);
-        holder.itemBinding.setAccount(currentAccount);
+    public void onBindViewHolder(@NonNull TransferAllAccountsAdapter.AccountHolder holder, int position) {
+        holder.itemBinding.setAccount(accountList.get(position));
     }
 
     @Override
@@ -53,18 +52,18 @@ public class AllAccountsAdapter extends RecyclerView.Adapter<AllAccountsAdapter.
     }
 
     public class AccountHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private ItemaccountBinding itemBinding;
+        private AccountsBottomSheetItemBinding itemBinding;
         OnAccountListener onAccountListener;
-        public AccountHolder(ItemaccountBinding itemBinding, OnAccountListener onAccountListener) {
+        public AccountHolder(AccountsBottomSheetItemBinding itemBinding, OnAccountListener onAccountListener) {
             super(itemBinding.getRoot());
             this.itemBinding = itemBinding;
             itemView.setOnClickListener(this);
             this.onAccountListener = onAccountListener;
+
         }
 
         @Override
         public void onClick(View view) {
-
             onAccountListener.onAccountClick(getAdapterPosition());
         }
     }

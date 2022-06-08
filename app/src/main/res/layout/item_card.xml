@@ -5,97 +5,66 @@
     <data>
         <variable
             name="card"
-            type="com.example.attijarilite.model.Card" />
+            type="com.example.attijarilite.model.Card"/>
     </data>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="175dp"
+        android:layout_height="110dp"
         android:background="@drawable/radius_button"
         android:backgroundTint="@color/gray"
-        android:paddingTop="4dp"
-        android:paddingBottom="8dp"
-        android:layout_margin="10dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/header_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:foregroundGravity="center_horizontal">
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:text="@string/balance"
-                android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                app:layout_constraintHorizontal_bias="0.053"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/mastercard"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.117" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
-            android:id="@+id/card_balance"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1233.00 DH "
-            android:layout_below="@id/header_layout"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            android:textSize="32dp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/balance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"/>
+
         <TextView
-            android:id="@+id/card_number"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0000 0000 0000 0000"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_below="@id/card_balance"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:text="@{String.valueOf(card.balance)}"
+            android:textColor="@color/green"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <TextView
-            android:id="@+id/expiration_date"
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="22/08"
-            android:layout_below="@id/card_number"
-            android:layout_marginLeft="60dp"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
-    </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionsByCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            />
-        </LinearLayout>
+            android:layout_marginBottom="16dp"
+            android:text="@{card.expirationDate}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.577"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/mastercard_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.946"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.125"
+            app:srcCompat="@drawable/mastercard" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>
