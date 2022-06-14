@@ -1,7 +1,9 @@
 package com.example.attijarilite.network;
 
 import com.example.attijarilite.model.Account;
+import com.example.attijarilite.model.Bill;
 import com.example.attijarilite.model.Card;
+import com.example.attijarilite.model.Transaction;
 
 import java.util.List;
 
@@ -26,4 +28,8 @@ public interface APIService {
     Call<List<Card>> getAllCards();
     @GET
     Call<Account> getAccountByAccountNumber(String accountNumber);
+    @GET("transaction/all")
+    Call<List<Transaction>> getAllTransactions();
+    @GET("bill/all")
+    Call<List<Bill>> getAllBills();
 }

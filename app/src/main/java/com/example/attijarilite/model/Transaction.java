@@ -1,26 +1,47 @@
 package com.example.attijarilite.model;
 
 public class Transaction {
-    private String transactionDate;
-    private String object;
+    private String libelle;
+    private String operationDate;
     private String beneficiary;
-    private float transactionAmount;
-    private String cardNUmber;
+    private float amount;
+    private String relatedCard;
+    private String accountNumber;
 
-    public String getCardNUmber() {
-        return cardNUmber;
+    public Transaction(String transactionDate, String object, String beneficiary, float transactionAmount, String cardNUmber, String relatedAccount) {
+        this.operationDate = transactionDate;
+        this.libelle = object;
+        this.beneficiary = beneficiary;
+        this.amount = transactionAmount;
+        this.relatedCard = cardNUmber;
+        this.accountNumber = relatedAccount;
+    }
+    public Transaction(String transactionDate, String transactionObject, String beneficiary, float transactionAmount) {
+        this.operationDate = transactionDate;
+        this.libelle = transactionObject;
+        this.beneficiary = beneficiary;
+        this.amount = transactionAmount;
+    }
+    public Transaction(String transactionDate, String object, float transactionAmount) {
+        this.operationDate = transactionDate;
+        this.libelle = object;
+        this.amount = transactionAmount;
     }
 
-    public void setCardNUmber(String cardNUmber) {
-        this.cardNUmber = cardNUmber;
+    public String getRelatedCard() {
+        return relatedCard;
+    }
+
+    public void setRelatedCard(String relatedCard) {
+        this.relatedCard = relatedCard;
     }
 
     public String getObject() {
-        return object;
+        return libelle;
     }
 
     public void setObject(String object) {
-        this.object = object;
+        this.libelle = object;
     }
 
     public String getBeneficiary() {
@@ -31,40 +52,27 @@ public class Transaction {
         this.beneficiary = beneficiary;
     }
 
-    public Transaction(String transactionDate, String transactionObject, String beneficiary, float transactionAmount) {
-        this.transactionDate = transactionDate;
-        this.object = transactionObject;
-        this.beneficiary = beneficiary;
-        this.transactionAmount = transactionAmount;
-    }
-
-    public Transaction(String transactionDate, String object, float transactionAmount) {
-        this.transactionDate = transactionDate;
-        this.object = object;
-        this.transactionAmount = transactionAmount;
-    }
-
     public String getTransactionDate() {
-        return transactionDate;
+        return operationDate;
     }
 
     public void setTransactionDate(String transactionDate) {
-        this.transactionDate = transactionDate;
+        this.operationDate = transactionDate;
     }
 
     public String getTransactionType() {
-        return object;
+        return libelle;
     }
 
     public void setTransactionType(String transactionType) {
-        this.object = transactionType;
+        this.libelle = transactionType;
     }
 
     public float getTransactionAmount() {
-        return transactionAmount;
+        return amount;
     }
 
     public void setTransactionAmount(float transactionAmount) {
-        this.transactionAmount = transactionAmount;
+        this.amount = transactionAmount;
     }
 }

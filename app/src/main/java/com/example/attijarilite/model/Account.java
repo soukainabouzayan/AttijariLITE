@@ -7,7 +7,13 @@ public class Account {
     private  String agency;
     private String accountType;
     private String entitled;
+
+    public String getOwnerIdentifier() {
+        return ownerIdentifier;
+    }
+
     private String rib;
+    private String ownerIdentifier;
 
     public Account(String accountNumber, float accountBalance, String accountType) {
         this.accountNumber = accountNumber;
@@ -24,7 +30,7 @@ public class Account {
         this.rib = rib;
     }
 
-    public Account(Long id, String accountNumber, float accountBalance, String agency, String accountType, String entitled, String rib) {
+    public Account(Long id, String accountNumber, float accountBalance, String agency, String accountType, String entitled, String rib, String ownerIdentifier) {
         this.id = id;
         this.accountNumber = accountNumber;
         this.accountBalance = accountBalance;
@@ -32,6 +38,7 @@ public class Account {
         this.accountType = accountType;
         this.entitled = entitled;
         this.rib = rib;
+        this.ownerIdentifier = ownerIdentifier;
     }
 
     public String getAccountNumber() {

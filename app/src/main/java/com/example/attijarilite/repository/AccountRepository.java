@@ -64,7 +64,7 @@ public class AccountRepository {
         return accounts;
     }
     public MutableLiveData<Account> getAccountByAccountNumber(String accountNumber){
-        MutableLiveData<Account> account = new MutableLiveData<>();
+        MutableLiveData<Account> accounts = new MutableLiveData<>();
         APIService apiService = RetrofitInstance.getRetrofitInstance().create(APIService.class);
         Call<Account> call = apiService.getAccountByAccountNumber(accountNumber);
         call.enqueue(new Callback<Account>() {
@@ -74,7 +74,7 @@ public class AccountRepository {
                     System.out.println("code : "+response.code());
                     return;
                 }
-                account.setValue(response.body());
+                accounts.setValue(response.body());
             }
 
             @Override
@@ -82,6 +82,6 @@ public class AccountRepository {
 
             }
         });
-        return account;
+        return accounts;
     }
 }

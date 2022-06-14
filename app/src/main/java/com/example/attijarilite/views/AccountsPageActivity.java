@@ -25,13 +25,11 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
     ActivityAccountsPageBinding accountsBinding;
     AllAccountsViewModel accountsViewModel;
     AllAccountsAdapter accountsAdapter;
-    String idetifier;
+    List<Account> accounts = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         accountsBinding = DataBindingUtil.setContentView(this,R.layout.activity_accounts_page);
-        Intent intent = getIntent();
-        idetifier = intent.getStringExtra("identifier");
         accountsBinding.iconback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +45,7 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
         ////init the viewmodel
         accountsViewModel = new ViewModelProvider(this).get(AllAccountsViewModel.class);
         /// init the account adapter
-        accountsAdapter = new AllAccountsAdapter(this);
+        accountsAdapter = new AllAccountsAdapter(accounts, this);
 
         /// set the accountsAdapter to our recyclerview
         recyclerView.setAdapter(accountsAdapter);
@@ -59,17 +57,17 @@ public class AccountsPageActivity extends AppCompatActivity implements AllAccoun
             @Override
             public void onChanged(@Nullable List<Account> accounts) {
                 accountsAdapter.setAccountList((ArrayList<Account>) accounts);
+
             }
         });
     }
-
     @Override
     public void onAccountClick(int position) {
         Intent intent = new Intent(getApplicationContext(),AccountDetailsActivity.class);
-        List<Account> accounts = (List<Account>) accountsViewModel.getAllAccounts().getValue();
+        accounts = (List<Account>) accountsViewModel.getAllAccounts().getValue();
         intent.putExtra("accountNumber",accounts.get(position).getAccountNumber());
         intent.putExtra("accountType",accounts.get(position).getAccountType());
-        intent.putExtra("accountBalance",accounts.get(position).getAccountBalance());
+        intent.putExtra("accountBalance",(float) accounts.get(position).getAccountBalance());
         startActivity(intent);
     }
 }

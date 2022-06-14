@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.BillActivity">
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mes Factures REDAL"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp"
+            android:textStyle="bold|italic"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/title"
+            android:layout_marginTop="10dp"
+            android:id="@+id/mybills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</layout>

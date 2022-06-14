@@ -3,29 +3,41 @@ package com.example.attijarilite.repository;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.attijarilite.model.Account;
 import com.example.attijarilite.model.Transaction;
+import com.example.attijarilite.network.APIService;
+import com.example.attijarilite.network.RetrofitInstance;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class TransactionRepository {
     public MutableLiveData<List<Transaction>> getAllTransactions(){
-        MutableLiveData<List<Transaction>> mutableLiveData = new MutableLiveData<>();
-        List<Transaction> transactionList = new ArrayList<>();
-        Transaction transaction1 = new Transaction("Date date1","transaction object1","bénificiaire",(float) 111.00);
-        Transaction transaction2 = new Transaction("Date date2","transaction object2","bénificiaire",(float) 222.34);
-        Transaction transaction3 = new Transaction("Date date3","transaction object3","bénificiaire",(float) 33.50);
-        Transaction transaction4 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 9.50);
-        transactionList.add(transaction1);
-        transactionList.add(transaction2);
-        transactionList.add(transaction3);
-        transactionList.add(transaction4);
-        transactionList.add(transaction4);
-        transactionList.add(transaction4);
-        transactionList.add(transaction4);
-        transactionList.add(transaction4);
-        mutableLiveData.setValue(transactionList);
-        return mutableLiveData;
+
+        MutableLiveData<List<Transaction>> transactions = new MutableLiveData<>();
+        APIService apiService = RetrofitInstance.getRetrofitInstance().create(APIService.class);
+        Call<List<Transaction>> call = apiService.getAllTransactions();
+        call.enqueue(new Callback<List<Transaction>>() {
+            @Override
+            public void onResponse(Call<List<Transaction>> call, Response<List<Transaction>> response) {
+
+                if (!response.isSuccessful()){
+                    System.out.println("code : "+response.code());
+                    return;
+                }
+                transactions.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Transaction>> call, Throwable t) {
+
+            }
+        });
+        return transactions;
     }
 
     public MutableLiveData<List<Transaction>> getTransactionsByCard(String cardNumber){

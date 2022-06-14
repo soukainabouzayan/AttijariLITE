@@ -21,7 +21,9 @@ public class AllAccountsAdapter extends RecyclerView.Adapter<AllAccountsAdapter.
     private OnAccountListener onAccountListener;
     public AllAccountsAdapter() {
     }
-    public AllAccountsAdapter(OnAccountListener onAccountListener) {
+
+    public AllAccountsAdapter(List<Account> accountList, OnAccountListener onAccountListener) {
+        this.accountList = accountList;
         this.onAccountListener = onAccountListener;
     }
 
@@ -64,7 +66,6 @@ public class AllAccountsAdapter extends RecyclerView.Adapter<AllAccountsAdapter.
 
         @Override
         public void onClick(View view) {
-
             onAccountListener.onAccountClick(getAdapterPosition());
         }
     }
