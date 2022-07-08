@@ -17,28 +17,15 @@ import retrofit2.Response;
 
 public class AccountRepository {
 
-
-
     public MutableLiveData<List<Account>> getAllAccounts(){
         MutableLiveData<List<Account>> accountList = new MutableLiveData<>();
         ArrayList<Account> accounts = new ArrayList<>();
-        Account account1 = new Account("account number1111111111",(float) 500,"account type 1");
-        Account account2 = new Account("account number 2222222222",(float) 478,"account type 2");
-        Account account3 = new Account("account number333333333",(float) 4567.34,"account type 3");
-        Account account4 = new Account("account number444444444444",(float) 7890,"account type 4");
+        Account account1 = new Account("0000C000000003",(float) 2811.42,"Compte sur carnet");
+        Account account2 = new Account("0000A000000001",(float) 3510.70,"Compte chèque");
+        Account account3 = new Account("0000B000000002",(float) 32320.25,"Compte courant");
         accounts.add(account1);
         accounts.add(account2);
         accounts.add(account3);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
-        accounts.add(account4);
         accountList.setValue(accounts);
         return accountList;
     }
@@ -65,6 +52,7 @@ public class AccountRepository {
     }
     public MutableLiveData<Account> getAccountByAccountNumber(String accountNumber){
         MutableLiveData<Account> accounts = new MutableLiveData<>();
+        List<Account> accountList = new ArrayList<>();
         APIService apiService = RetrofitInstance.getRetrofitInstance().create(APIService.class);
         Call<Account> call = apiService.getAccountByAccountNumber(accountNumber);
         call.enqueue(new Callback<Account>() {
@@ -83,5 +71,32 @@ public class AccountRepository {
             }
         });
         return accounts;
+    }
+    public MutableLiveData<Double> getUserBalance(String ownerIdentifier){
+        MutableLiveData<Double> balance = new MutableLiveData<>();
+        APIService apiService = RetrofitInstance.getRetrofitInstance().create(APIService.class);
+        Call<Double> call = apiService.getUserBalance(ownerIdentifier);
+        call.enqueue(new Callback<Double>() {
+            @Override
+            public void onResponse(Call<Double> call, Response<Double> response) {
+                if (!response.isSuccessful()){
+                    System.out.println("code : "+response.code());
+                    return;
+                }
+                balance.setValue(response.body());
+
+            }
+
+            @Override
+            public void onFailure(Call<Double> call, Throwable t) {
+
+            }
+        });
+        return balance;
+    }
+    public MutableLiveData<Double> getUserBalance(){
+        MutableLiveData<Double> balance = new MutableLiveData<>();
+       balance.setValue(35410.74);
+        return balance;
     }
 }

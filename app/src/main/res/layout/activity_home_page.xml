@@ -6,6 +6,9 @@
         <variable
             name="balanceViewModel"
             type="com.example.attijarilite.viewmodel.BalanceViewModel" />
+        <variable
+            name="user"
+            type="com.example.attijarilite.model.User" />
     </data>
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
@@ -96,17 +99,17 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="20dp"
                             android:gravity="center"
-                            android:text="Balance"
+                            android:text="Solde"
                             android:textColor="@color/black"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/balance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="25dp"
                             android:layout_marginTop="10dp"
-                            android:text="@{String.valueOf(balanceViewModel.balance)+` DH`}"
                             android:textColor="@color/black"
                             android:textSize="30dp" />
 

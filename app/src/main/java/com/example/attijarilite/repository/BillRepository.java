@@ -8,6 +8,7 @@ import com.example.attijarilite.model.Bill;
 import com.example.attijarilite.network.APIService;
 import com.example.attijarilite.network.RetrofitInstance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,4 +37,15 @@ public class BillRepository {
         });
         return bills;
     }
+    public MutableLiveData<List<Bill>> getAll(){
+        MutableLiveData<List<Bill>> bills = new MutableLiveData<>();
+        List<Bill> billList = new ArrayList<>();
+        Bill bill = new Bill("facture 1",252.52,"REDAL");
+        Bill bill2 = new Bill("facture 2",352.52,"REDAL");
+        billList.add(bill);
+        billList.add(bill2);
+        bills.setValue(billList);
+        return bills;
+    }
+
 }

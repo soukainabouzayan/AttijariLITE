@@ -17,7 +17,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/transfer_pay_64"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="2dp"
             android:layout_gravity="center_vertical"
             />
 
@@ -43,7 +43,6 @@
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/black"
                 android:textSize="12dp" />
-
         </LinearLayout>
 
         <TextView
@@ -51,12 +50,12 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="10dp"
             android:gravity="center"
             android:text="@{String.valueOf(transaction.transactionAmount)+` DH`}"
             android:textColor="@color/green"
             android:textSize="22dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </layout>

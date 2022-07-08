@@ -12,14 +12,10 @@ public class BeneficiaryRepository {
     public MutableLiveData<List<Beneficiary>> getAllBeneficiairy(){
         MutableLiveData<List<Beneficiary>> beneficiaryList = new MutableLiveData<>();
         ArrayList<Beneficiary> beneficiaries = new ArrayList<>();
-        Beneficiary beneficiary = new Beneficiary("physique","soukaina","bouzayan","0000000000000000");
+        Beneficiary beneficiary = new Beneficiary("physique","soukaina","bouzayan","0000 0000 0000 0000 0000 0000");
+        Beneficiary beneficiary1 = new Beneficiary("physique","mehdi","bouzayan","0000 0000 0000 0000 0000 0001");
         beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
-        beneficiaries.add(beneficiary);
+        beneficiaries.add(beneficiary1);
         beneficiaryList.setValue(beneficiaries);
         return beneficiaryList;
 

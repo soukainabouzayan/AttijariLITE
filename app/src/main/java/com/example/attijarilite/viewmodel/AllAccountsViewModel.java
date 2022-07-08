@@ -11,7 +11,7 @@ public class AllAccountsViewModel extends ViewModel {
         accountRepository = new AccountRepository();
     }
     public LiveData getAllAccounts(){
-        return accountRepository.getAllAccountsRetro();
+        return accountRepository.getAllAccounts();
     }
     public LiveData getAccountByAccountNumber(String accountNumber){return accountRepository.getAccountByAccountNumber(accountNumber);}
 

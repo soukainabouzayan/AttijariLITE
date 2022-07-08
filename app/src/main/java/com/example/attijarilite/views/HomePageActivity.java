@@ -1,9 +1,11 @@
 package com.example.attijarilite.views;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.attijarilite.R;
 import com.example.attijarilite.adapter.HistoryAdapter;
 import com.example.attijarilite.databinding.ActivityHomePageBinding;
+import com.example.attijarilite.databinding.MainMenuHeaderBinding;
 import com.example.attijarilite.model.Transaction;
 import com.example.attijarilite.viewmodel.BalanceViewModel;
 import com.example.attijarilite.viewmodel.AllTransactionsViewModel;
@@ -28,15 +31,18 @@ import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
     ActivityHomePageBinding activityHomePageBinding;
-    BalanceViewModel balanceViewModel;
+    private BalanceViewModel balanceViewModel;
     private AllTransactionsViewModel historyViewModel;
     private HistoryAdapter historyAdapter;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private TextView balanceTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityHomePageBinding = DataBindingUtil.setContentView(this,R.layout.activity_home_page);
+        balanceTextView = activityHomePageBinding.balance;
         balanceViewModel = new ViewModelProvider(this).get(BalanceViewModel.class);
         activityHomePageBinding.setBalanceViewModel(balanceViewModel);
         activityHomePageBinding.setLifecycleOwner(this);
@@ -116,7 +122,15 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Transaction> transactions) {
                 historyAdapter.setTransactionList((ArrayList<Transaction>) transactions);
+
             }
         });
+        balanceViewModel.getUserBalance("AAA00000000").observe(this,new Observer<Double>(){
+            @Override
+            public void onChanged(Double balance) {
+                balanceTextView.setText(String.valueOf(balance).concat(" DH"));
+            }
+        });
+
     }
 }

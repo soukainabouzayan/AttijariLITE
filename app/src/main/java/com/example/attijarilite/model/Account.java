@@ -1,11 +1,19 @@
 package com.example.attijarilite.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Account {
+    @SerializedName("id")
     private Long id;
+    @SerializedName("accountNumber")
     private String accountNumber;
+    @SerializedName("accountBalance")
     private float accountBalance;
+    @SerializedName("agency")
     private  String agency;
+    @SerializedName("accountType")
     private String accountType;
+    @SerializedName("entitled")
     private String entitled;
 
     public String getOwnerIdentifier() {

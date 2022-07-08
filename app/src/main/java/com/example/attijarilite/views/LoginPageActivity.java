@@ -51,6 +51,14 @@ public class LoginPageActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),HomePageActivity.class));
             }
         });
+        activityLoginPageBinding.assistant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AssistanceActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
     public void getAccessToken(){
         APIService service = RetrofitInstance.getRetrofitInstance().create(APIService.class);

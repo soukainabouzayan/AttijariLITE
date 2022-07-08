@@ -118,4 +118,34 @@ public class TransactionRepository {
         else
             return mutableLiveData;
     }
+    public MutableLiveData<List<Transaction>> getAll(){
+        MutableLiveData<List<Transaction>> mutableLiveData = new MutableLiveData<>();
+        List<Transaction> transactionList = new ArrayList<>();
+        Transaction transaction1 = new Transaction("Date date1","transaction object1","bénificiaire",(float) 111.0);
+        Transaction transaction2 = new Transaction("Date date2","transaction object2","bénificiaire",(float) 222);
+        Transaction transaction3 = new Transaction("Date date3","transaction object3","bénificiaire",(float) 333);
+        Transaction transaction4 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 444.0);
+        Transaction transaction5 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 200.00);
+        Transaction transaction6 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 1200.00);
+        Transaction transaction7 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 44.90);
+        Transaction transaction8 = new Transaction("Date date4","transaction object4","bénificiaire",(float) 150.00);
+        transactionList.add(transaction1);
+        transactionList.add(transaction2);
+        transactionList.add(transaction3);
+        transactionList.add(transaction4);
+        transactionList.add(transaction5);
+        transactionList.add(transaction6);
+        transactionList.add(transaction7);
+        transactionList.add(transaction8);
+        mutableLiveData.setValue(transactionList);
+        MutableLiveData<List<Transaction>> mutableLiveData2 = new MutableLiveData<>();
+        List<Transaction> transactionList2 = new ArrayList<>();
+        Transaction transaction9 = new Transaction("Date date1","transaction object1","bénificiaire", 111111F);
+        transactionList2.add(transaction9);
+        transactionList2.add(transaction9);
+        transactionList2.add(transaction9);
+        mutableLiveData2.setValue(transactionList2);
+        return mutableLiveData;
+    }
+
 }

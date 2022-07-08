@@ -14,6 +14,6 @@ public class AllTransactionsViewModel extends ViewModel {
         transactionRepository = new TransactionRepository();
     }
     public LiveData<List<Transaction>> getAllTransactions(){
-        return transactionRepository.getAllTransactions();
+        return transactionRepository.getAll();
     }
 }

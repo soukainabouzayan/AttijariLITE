@@ -22,9 +22,6 @@ public class CardRepository {
         Card card = new Card("1111 1111 1111 1111 1111",(float) 1233,"20/8","VISA");
         Card card2 = new Card("0000 0000 0000 0000 0000",(float) 1500,"05/05","VISA");
         list.add(card);
-        list.add(card);
-        list.add(card);
-        list.add(card2);
         list.add(card2);
         mutableLiveData.setValue(list);
         return mutableLiveData;

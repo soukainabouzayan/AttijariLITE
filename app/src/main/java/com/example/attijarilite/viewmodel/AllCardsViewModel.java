@@ -12,6 +12,6 @@ public class AllCardsViewModel extends ViewModel {
         cardRepository = new CardRepository();
     }
     public LiveData getAllCards(){
-        return cardRepository.getAllCardsRetro();
+        return cardRepository.getAllCards();
     }
 }

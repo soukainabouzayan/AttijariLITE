@@ -3,9 +3,19 @@ package com.example.attijarilite.model;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
+    @SerializedName("owner")
     private String identifier;
+    @SerializedName("password")
     private String password;
+    @SerializedName("balance")
+    private Double balance;
+
+    public Double getBalance() {
+        return balance;
+    }
 
     public User() {
     }
